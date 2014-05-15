@@ -170,8 +170,13 @@ Cloud.prototype.getSensor = function(self, offset) {
 
     if (!!err) return logger.error('device/' + self.deviceID, { event: 'getSensor', offset: offset, diagnostic: err.message });
 
-    props =  { temp     : [ 'temperature', 'celcius',    'meteo' ]
-             , humidity : [ 'humidity',    'percentage', 'meteo' ]
+    props =  { temp     : [ 'temperature',    'celcius',    'meteo' ]
+             , humidity : [ 'humidity',       'percentage', 'meteo' ]
+	     , rrate    : [ 'rain rate',      'mm/h',       'meteo' ]
+	     , rtot     : [ 'rain total',     'mm',         'meteo' ]
+	     , wavg     : [ 'wind average',   'm/s',        'meteo' ]
+	     , wgust    : [ 'wind gust',      'm/s',        'meteo' ]
+	     , wdir     : [ 'wind direction', 'degrees',    'meteo' ]
              };
 
     data = { lastSample: params.lastUpdated * 1000 };
